@@ -15,7 +15,7 @@ public class airship_wanderer_Test {
   private final AirshipWanderer test_airship = new AirshipWanderer(null, null);
 
   @Test
-  void test_airship_gives_flag() {
+  void testAirshipGivesFlag() {
     assertAll("Ship Flags", () -> {
 
       assertAll("Russian", () -> {
@@ -46,7 +46,7 @@ public class airship_wanderer_Test {
   }
 
   @Test
-  void test_airship_gives_name() {
+  void testAirshipGivesNameAndFlag() {
 
     assertAll("Ship Flag And Name",
         () -> {
@@ -62,6 +62,17 @@ public class airship_wanderer_Test {
           assertEquals(ship_name, "RAS " + test_data);
         });
 
+  }
+
+  @Test
+  void testAirshipKnowsMap() {
+    assertAll("Ship Knows Map & Movement", () -> {
+      test_airship.setLocation(CityList.FirstCity);
+      test_airship.setAltitude(SkyLevels.Ground);
+
+      assertEquals(CityList.FirstCity, test_airship.getLocation());
+      assertEquals(SkyLevels.Ground, test_airship.getAltitude());
+    });
   }
 
 }
