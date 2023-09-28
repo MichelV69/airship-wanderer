@@ -12,20 +12,20 @@ import airship_wanderer.*;
 
 public class airship_wanderer_Test {
 
-  private final AirshipWanderer test_airship = new AirshipWanderer();
+  private final AirshipWanderer test_airship = new AirshipWanderer(null, null);
 
   @Test
   void test_airship_gives_flag() {
     assertAll("Ship Flags", () -> {
 
       assertAll("Russian", () -> {
-        test_airship.SetFlag(AirshipWanderer.RegistryFlag.XX);
-        assertEquals(AirshipWanderer.RegistryFlag.XX, test_airship.get_flag());
+        test_airship.setFlag(AirshipWanderer.RegistryFlag.XX);
+        assertEquals(AirshipWanderer.RegistryFlag.XX, test_airship.getFlag());
       });
 
       assertAll("British", () -> {
-        test_airship.SetFlag(AirshipWanderer.RegistryFlag.GB);
-        assertEquals(AirshipWanderer.RegistryFlag.GB, test_airship.get_flag());
+        test_airship.setFlag(AirshipWanderer.RegistryFlag.GB);
+        assertEquals(AirshipWanderer.RegistryFlag.GB, test_airship.getFlag());
       });
     });
   }
@@ -37,10 +37,10 @@ public class airship_wanderer_Test {
         () -> {
           String test_data = "Cool Test Ship";
 
-          test_airship.SetFlag(AirshipWanderer.RegistryFlag.GB);
-          test_airship.SetName(test_data);
+          test_airship.setFlag(AirshipWanderer.RegistryFlag.GB);
+          test_airship.setName(test_data);
 
-          String ship_name = test_airship.GetName();
+          String ship_name = test_airship.getName();
           System.out.println("TEST DATA :: [" + ship_name + "]");
           assertNotNull(ship_name);
           assertTrue(ship_name.startsWith("RAS"));

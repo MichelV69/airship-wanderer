@@ -1,6 +1,7 @@
 package airship_wanderer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /*
 Michel R Vaillancourt <michel@michelrvaillancourt.com>
@@ -16,19 +17,19 @@ public class AirshipWanderer {
     XX, GB, FR, US, GR, RU;
   }
 
-  final short gameStartDay = 1888 * 365.25;
+  final short gameStartDay = (short) (1888 * 365.25);
 
   // Class Properties
   private String ship_name;
   private RegistryFlag shipRegistryFlag;
 
-  private float captainSkill, navigatorSkill, gunnerSkill, surgeonSkill;
+  private Float captainSkill, navigatorSkill, gunnerSkill, surgeonSkill;
   private float shipClock;
 
-  private short shipNorthPos, shipEastPos, shipAltitude100s;
-  private short shipCalendarDay;
+  private Short shipNorthPos, shipEastPos, shipAltitude100s;
+  private Short shipCalendarDay;
 
-  private boolean hasEMIPALE;
+  private Boolean hasEMIPALE;
 
   private ArrayList<String> carriedCargo = new ArrayList<String>();
 
@@ -74,7 +75,7 @@ public class AirshipWanderer {
   } // public AirshipWanderer
 
   // Other Class Methods
-  public String GetName() {
+  public String getName() {
 
     String flag_name;
 
@@ -93,24 +94,33 @@ public class AirshipWanderer {
     return flag_name + " " + this.ship_name;
   }
 
-  public RegistryFlag GetFlag() {
+  public RegistryFlag getFlag() {
     return this.shipRegistryFlag;
   }
 
-  public void SetFlag(RegistryFlag newFlag) {
+  public void setFlag(RegistryFlag newFlag) {
     this.shipRegistryFlag = newFlag;
   }
 
-  public void SetName(String newName) {
+  public void setName(String newName) {
     this.ship_name = newName;
   }
 
-  public String GetGreetFromClock() {
+  public String getGreetFromClock() {
     String greetingFromClock = (this.shipClock <= 18.00f) ? "Good day" : "Good evening";
     return greetingFromClock + ", Captain.";
   }
 
-  public char[] GetRegistry() {
+  public char[] getRegistry() {
     return null;
+  }
+
+  public String getCargoList() {
+    String cargoList = "";
+    Collections.sort(this.carriedCargo);
+    for (String one_cargo : this.carriedCargo) {
+      cargoList += one_cargo + ", ";
+    }
+    return cargoList;
   }
 }
