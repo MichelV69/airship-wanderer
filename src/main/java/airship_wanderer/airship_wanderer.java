@@ -5,7 +5,7 @@ public class airship_wanderer {
   String ship_name = "Brand New Ship";
 
   enum RegistryFlag {
-    XX, GB, FR, US, GR;
+    XX, GB, FR, US, GR, RU;
   }
 
   RegistryFlag shipRegistryFlag = RegistryFlag.XX;
@@ -31,6 +31,10 @@ public class airship_wanderer {
     }
 
     return flag_name + " " + this.ship_name;
+  }
+
+  public RegistryFlag get_flag() {
+    return this.shipRegistryFlag;
   }
 
   public void set_flag(RegistryFlag newFlag) {
