@@ -13,15 +13,11 @@ Simple Game where you fly an airship around and look for stuff
 public class AirshipWanderer {
 
   // internals we'll need
-  enum RegistryFlag {
-    XX, GB, FR, US, GR, RU;
-  }
-
   final short gameStartDay = (short) (1888 * 365.25);
 
   // Class Properties
-  private String ship_name;
-  private RegistryFlag shipRegistryFlag;
+  private String shipName;
+  private RegistryFlag.CountryList shipRegistryFlag;
 
   private Float captainSkill, navigatorSkill, gunnerSkill, surgeonSkill;
   private float shipClock;
@@ -38,17 +34,17 @@ public class AirshipWanderer {
   }
 
   // Constructor Method
-  public AirshipWanderer(RegistryFlag newFlag, String newName) {
+  public AirshipWanderer(RegistryFlag.CountryList newFlag, String newName) {
 
     if (newFlag == null) {
-      newFlag = RegistryFlag.XX;
+      newFlag = RegistryFlag.CountryList.XX;
     }
 
     if (newName == null) {
       newName = "Brand New Ship";
     }
 
-    ship_name = newName;
+    shipName = newName;
     shipRegistryFlag = newFlag;
 
     captainSkill = 0.00f;
@@ -77,33 +73,21 @@ public class AirshipWanderer {
   // Other Class Methods
   public String getName() {
 
-    String flag_name;
+    String flag_name = "";
 
-    switch (this.shipRegistryFlag) {
-      case XX:
-        flag_name = "Pirate";
-        break;
-      case GB:
-        flag_name = "RAS";
-        break;
-      default:
-        flag_name = "CA";
-        break;
-    }
-
-    return flag_name + " " + this.ship_name;
+    return flag_name + " " + this.shipName;
   }
 
-  public RegistryFlag getFlag() {
+  public RegistryFlag.CountryList getFlag() {
     return this.shipRegistryFlag;
   }
 
-  public void setFlag(RegistryFlag newFlag) {
+  public void setFlag(RegistryFlag.CountryList newFlag) {
     this.shipRegistryFlag = newFlag;
   }
 
   public void setName(String newName) {
-    this.ship_name = newName;
+    this.shipName = newName;
   }
 
   public String getGreetFromClock() {
@@ -122,5 +106,10 @@ public class AirshipWanderer {
       cargoList += one_cargo + ", ";
     }
     return cargoList;
+  }
+
+  public String getFlagAndName() {
+    String flagAndName = this.shipRegistryFlag.getFlag() + " " + this.shipName;
+    return flagAndName;
   }
 }

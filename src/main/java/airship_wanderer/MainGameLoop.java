@@ -7,7 +7,7 @@ public class MainGameLoop {
     AirshipWanderer player_airship = new AirshipWanderer(null, null);
 
     player_airship.setName("Bloody Rose");
-    player_airship.setFlag(AirshipWanderer.RegistryFlag.XX);
+    player_airship.setFlag(RegistryFlag.CountryList.XX);
 
     System.out.println(player_airship.getGreetFromClock());
     System.out.println(player_airship.getName());
