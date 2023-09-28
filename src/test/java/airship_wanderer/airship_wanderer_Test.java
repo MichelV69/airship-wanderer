@@ -32,6 +32,16 @@ public class airship_wanderer_Test {
         test_airship.setFlag(RegistryFlag.CountryList.GR);
         assertEquals(RegistryFlag.CountryList.GR, test_airship.getFlag());
       });
+
+      assertAll("French", () -> {
+        test_airship.setFlag(RegistryFlag.CountryList.FR);
+        assertEquals(RegistryFlag.CountryList.FR, test_airship.getFlag());
+      });
+
+      assertAll("Pirate", () -> {
+        test_airship.setFlag(RegistryFlag.CountryList.XX);
+        assertEquals(RegistryFlag.CountryList.XX, test_airship.getFlag());
+      });
     });
   }
 
