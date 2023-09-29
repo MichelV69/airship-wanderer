@@ -3,6 +3,8 @@ package airship_wanderer;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
+import airship_wanderer.SkyLevels.Altitude;
+
 public class MapSpace {
   private Short shipNorthPos, shipEastPos;
   private SkyLevels.Altitude altitude;
@@ -36,6 +38,10 @@ public class MapSpace {
 
   public void setAltitude(SkyLevels.Altitude newLevel) {
     this.altitude = newLevel;
+  }
+
+  public Altitude getAltitude() {
+    return this.altitude;
   }
 
 }

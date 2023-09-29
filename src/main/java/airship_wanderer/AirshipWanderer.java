@@ -3,6 +3,8 @@ package airship_wanderer;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import airship_wanderer.SkyLevels.Altitude;
+
 /*
 Michel R Vaillancourt <michel@michelrvaillancourt.com>
 27 Sept 2023
@@ -111,5 +113,13 @@ public class AirshipWanderer {
   public String getFlagAndName() {
     String flagAndName = this.shipRegistryFlag.getFlag() + " " + this.shipName;
     return flagAndName;
+  }
+
+  public void setAltitude(Altitude newLevel) {
+    shipPosition.setAltitude(newLevel);
+  }
+
+  public Altitude getAltitude() {
+    return shipPosition.getAltitude();
   }
 }

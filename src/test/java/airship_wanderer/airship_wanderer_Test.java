@@ -64,12 +64,25 @@ public class airship_wanderer_Test {
 
   @Test
   void testSkyLevels() {
-    assertTrue(false);
     // SEA, GROUND, TREES, HILLS, LOW, MIDDLE, HIGH, THIN;
 
-    assertAll("Ship Knows Map & Movement", () -> {
+    assertAll("Flight Levels Defined", () -> {
       assertNotNull(SkyLevels.Altitude.SEA);
       assertNotNull(SkyLevels.Altitude.GROUND);
+      assertNotNull(SkyLevels.Altitude.TREES);
+      assertNotNull(SkyLevels.Altitude.HILLS);
+      assertNotNull(SkyLevels.Altitude.LOW);
+      assertNotNull(SkyLevels.Altitude.MIDDLE);
+      assertNotNull(SkyLevels.Altitude.HIGH);
+      assertNotNull(SkyLevels.Altitude.THIN);
+    });
+
+    assertAll("FL Descriptions", () -> {
+      test_airship.setAltitude(SkyLevels.Altitude.SEA);
+      assertEquals("Floating at Zero.", test_airship.getAltitude().getFLText(), "SEA Level");
+      test_airship.setAltitude(SkyLevels.Altitude.GROUND);
+      assertEquals("Hovering at Docking height.", test_airship.getAltitude().getFLText(), "GROUND Level");
+
     });
 
   }
