@@ -82,17 +82,24 @@ public class airship_wanderer_Test {
       assertEquals("Floating at Zero.", test_airship.getAltitude().getFLText(), "SEA Level");
       test_airship.setAltitude(SkyLevels.Altitude.GROUND);
       assertEquals("Hovering at Docking height.", test_airship.getAltitude().getFLText(), "GROUND Level");
-
+      test_airship.setAltitude(SkyLevels.Altitude.TREES);
+      assertEquals("Flying at tree-top level. Pinecones in the propellers!.", test_airship.getAltitude().getFLText(),
+          "TREES Level");
+      test_airship.setAltitude(SkyLevels.Altitude.HILLS);
+      assertEquals("Cruising through the valleys and over the hills.", test_airship.getAltitude().getFLText(),
+          "HILLS Level");
+      test_airship.setAltitude(SkyLevels.Altitude.LOW);
+      assertEquals("Operating between 150 and 300m.", test_airship.getAltitude().getFLText(), "LOW Level");
     });
 
   }
-
-  @Test
-  void testCityLists() {
-    assertTrue(false);
-  }
-
   /*
+   * @Test
+   * void testCityLists() {
+   * assertTrue(false);
+   * }
+   *
+   *
    * @Test
    * void testAirshipKnowsMap() {
    * assertAll("Ship Knows Map & Movement", () -> {
