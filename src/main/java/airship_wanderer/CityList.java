@@ -4,6 +4,10 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
 import airship_wanderer.RegistryFlag;
 
 public class CityList {
@@ -28,6 +32,15 @@ public class CityList {
     newCity.OwnedBy = RegistryFlag.CountryList.GR;
     this.cityInfo.add(newCity);
 
+  }
+
+  public getInfo(String searchedCityName) {
+
+  List<CityInfo> result = this.cityInfo.stream()
+      .filter(a -> Objects.equals(a.Name, searchedCityName))
+      .collect(Collectors.toList());
+
+    return result;
   }
 
 }
