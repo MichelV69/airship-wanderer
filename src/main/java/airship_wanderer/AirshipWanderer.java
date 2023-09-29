@@ -22,7 +22,7 @@ public class AirshipWanderer {
   private Float captainSkill, navigatorSkill, gunnerSkill, surgeonSkill;
   private float shipClock;
 
-  private MapSpace shipPosition;
+  private MapSpace shipPosition = new MapSpace();
   private Short shipCalendarDay;
 
   private Boolean hasEMIPALE;
