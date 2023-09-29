@@ -22,7 +22,7 @@ public class AirshipWanderer {
   private Float captainSkill, navigatorSkill, gunnerSkill, surgeonSkill;
   private float shipClock;
 
-  private Short shipNorthPos, shipEastPos, shipAltitude100s;
+  private MapSpace shipPosition;
   private Short shipCalendarDay;
 
   private Boolean hasEMIPALE;
@@ -54,9 +54,9 @@ public class AirshipWanderer {
 
     hasEMIPALE = false;
 
-    shipNorthPos = 5;
-    shipEastPos = 6;
-    shipAltitude100s = 50;
+    shipPosition.setShipEastPos(0);
+    shipPosition.setShipNorthPos(0);
+    shipPosition.s
 
     shipClock = 12.00f;
     shipCalendarDay = gameStartDay;
