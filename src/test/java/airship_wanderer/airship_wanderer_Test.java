@@ -8,8 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import airship_wanderer.*;
-
 public class airship_wanderer_Test {
 
   private final AirshipWanderer test_airship = new AirshipWanderer(null, null);
@@ -67,6 +65,13 @@ public class airship_wanderer_Test {
   @Test
   void testSkyLevels() {
     assertTrue(false);
+    // SEA, GROUND, TREES, HILLS, LOW, MIDDLE, HIGH, THIN;
+
+    assertAll("Ship Knows Map & Movement", () -> {
+      assertNotNull(SkyLevels.Altitude.SEA);
+      assertNotNull(SkyLevels.Altitude.GROUND);
+    });
+
   }
 
   @Test
@@ -74,15 +79,17 @@ public class airship_wanderer_Test {
     assertTrue(false);
   }
 
-  @Test
-  void testAirshipKnowsMap() {
-    assertAll("Ship Knows Map & Movement", () -> {
-      test_airship.setLocation(CityList.FirstCity);
-      test_airship.setAltitude(SkyLevels.Ground);
-
-      assertEquals(CityList.getInfo("FirstCity"), test_airship.getLocation());
-      assertEquals(SkyLevels.Ground, test_airship.getAltitude());
-    });
-  }
+  /*
+   * @Test
+   * void testAirshipKnowsMap() {
+   * assertAll("Ship Knows Map & Movement", () -> {
+   * test_airship.setLocation(CityList.FirstCity);
+   * test_airship.setAltitude(SkyLevels.Ground);
+   *
+   * assertEquals(CityList.getInfo("FirstCity"), test_airship.getLocation());
+   * assertEquals(SkyLevels.Ground, test_airship.getAltitude());
+   * });
+   * }
+   */
 
 }

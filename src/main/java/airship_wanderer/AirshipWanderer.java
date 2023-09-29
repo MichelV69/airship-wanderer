@@ -56,7 +56,7 @@ public class AirshipWanderer {
 
     shipPosition.setShipEastPos(0);
     shipPosition.setShipNorthPos(0);
-    shipPosition.s
+    shipPosition.setAltitude(SkyLevels.Altitude.GROUND);
 
     shipClock = 12.00f;
     shipCalendarDay = gameStartDay;
