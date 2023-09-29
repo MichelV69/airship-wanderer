@@ -65,12 +65,22 @@ public class airship_wanderer_Test {
   }
 
   @Test
+  void testSkyLevels() {
+    assertTrue(false);
+  }
+
+  @Test
+  void testCityLists() {
+    assertTrue(false);
+  }
+
+  @Test
   void testAirshipKnowsMap() {
     assertAll("Ship Knows Map & Movement", () -> {
       test_airship.setLocation(CityList.FirstCity);
       test_airship.setAltitude(SkyLevels.Ground);
 
-      assertEquals(CityList.FirstCity, test_airship.getLocation());
+      assertEquals(CityList.getInfo("FirstCity"), test_airship.getLocation());
       assertEquals(SkyLevels.Ground, test_airship.getAltitude());
     });
   }
