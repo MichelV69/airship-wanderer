@@ -35,7 +35,13 @@ public class CityList {
         .filter(a -> Objects.equals(a.Name, searchedCityName))
         .collect(Collectors.toList());
 
-    return result.iterator().next();
+    try {
+      return result.iterator().next();
+    } catch (Exception e) {
+      return null;
+    }
+
   }
 
 }
+// *** end of file ***

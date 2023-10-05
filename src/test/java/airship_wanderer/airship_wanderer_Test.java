@@ -101,13 +101,18 @@ public class airship_wanderer_Test {
     });
 
   }
+
+  @Test
+  void testCityLists() {
+    CityList test_cities = new CityList();
+    assertAll("City Object WAEx", () -> {
+      // Name, FlavorText, PosX, PosY, OwnedBy
+      assertNotNull(test_cities, "did object instanciate?");
+      assertNotNull(test_cities.getInfo("FirstCity"), "did constructor run as expected?");
+    });
+  }
+
   /*
-   * @Test
-   * void testCityLists() {
-   * assertTrue(false);
-   * }
-   *
-   *
    * @Test
    * void testAirshipKnowsMap() {
    * assertAll("Ship Knows Map & Movement", () -> {
