@@ -3,6 +3,8 @@ package airship_wanderer;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import airship_wanderer.SkyLevels.Altitude;
+
 /*
 Michel R Vaillancourt <michel@michelrvaillancourt.com>
 27 Sept 2023
@@ -22,7 +24,7 @@ public class AirshipWanderer {
   private Float captainSkill, navigatorSkill, gunnerSkill, surgeonSkill;
   private float shipClock;
 
-  private Short shipNorthPos, shipEastPos, shipAltitude100s;
+  private MapSpace shipPosition = new MapSpace();
   private Short shipCalendarDay;
 
   private Boolean hasEMIPALE;
@@ -54,9 +56,9 @@ public class AirshipWanderer {
 
     hasEMIPALE = false;
 
-    shipNorthPos = 5;
-    shipEastPos = 6;
-    shipAltitude100s = 50;
+    shipPosition.setShipEastPos(0);
+    shipPosition.setShipNorthPos(0);
+    shipPosition.setAltitude(SkyLevels.Altitude.GROUND);
 
     shipClock = 12.00f;
     shipCalendarDay = gameStartDay;
@@ -111,5 +113,13 @@ public class AirshipWanderer {
   public String getFlagAndName() {
     String flagAndName = this.shipRegistryFlag.getFlag() + " " + this.shipName;
     return flagAndName;
+  }
+
+  public void setAltitude(Altitude newLevel) {
+    shipPosition.setAltitude(newLevel);
+  }
+
+  public Altitude getAltitude() {
+    return shipPosition.getAltitude();
   }
 }
