@@ -7,12 +7,11 @@ import java.util.stream.Collectors;
 
 public class CityList {
 
-  private class CityInfo {
-    String Name;
-    String FlavorText;
-    Short PosX;
-    Short PosY;
-    RegistryFlag.CountryList OwnedBy;
+  static class CityInfo {
+    String name;
+    String flavorText;
+    MapSpace location = new MapSpace();
+    RegistryFlag.CountryList ownedBy;
   }
 
   // cityInfo
@@ -20,11 +19,10 @@ public class CityList {
 
   public CityList() {
     CityInfo newCity = new CityInfo();
-    newCity.Name = "FirstCity";
-    newCity.FlavorText = "Smokey industrial spires and sprawling airship docks.";
-    newCity.PosX = 13;
-    newCity.PosY = 13;
-    newCity.OwnedBy = RegistryFlag.CountryList.GR;
+    newCity.name = "FirstCity";
+    newCity.flavorText = "Smokey industrial spires and sprawling airship docks.";
+
+    newCity.ownedBy = RegistryFlag.CountryList.GR;
     this.cityInfo.add(newCity);
 
   }
@@ -32,7 +30,7 @@ public class CityList {
   public CityInfo getInfo(String searchedCityName) {
 
     List<CityList.CityInfo> result = this.cityInfo.stream()
-        .filter(a -> Objects.equals(a.Name, searchedCityName))
+        .filter(a -> Objects.equals(a.name, searchedCityName))
         .collect(Collectors.toList());
 
     try {
