@@ -91,9 +91,10 @@ public class airship_wanderer_Test {
           "HILLS Level");
       test_airship.setAltitude(SkyLevels.Altitude.LOW);
       assertEquals("Operating between 150 and 300m.", test_airship.getAltitude().getFLText(), "LOW Level");
-
       test_airship.setAltitude(SkyLevels.Altitude.MIDDLE);
       assertEquals("Flying above 300m and below 1000m.", test_airship.getAltitude().getFLText(), "MIDDLE Level");
+      test_airship.setAltitude(SkyLevels.Altitude.HIGH);
+      assertEquals("Cruising above 1000m and below 1800m.", test_airship.getAltitude().getFLText(), "HIGH Level");
 
     });
 
