@@ -105,10 +105,14 @@ public class airship_wanderer_Test {
   @Test
   void testCityLists() {
     CityList test_cities = new CityList();
+    CityList.CityInfo firstCity = test_cities.getInfo("FirstCity");
     assertAll("City Object WAEx", () -> {
       // Name, FlavorText, PosX, PosY, OwnedBy
       assertNotNull(test_cities, "did object instanciate?");
-      assertNotNull(test_cities.getInfo("FirstCity"), "did constructor run as expected?");
+      assertNotNull(firstCity, "did constructor run as expected?");
+      assertEquals("FirstCity", firstCity.name, "firstCity.Name");
+      assertEquals("Smokey industrial spires and sprawling airship docks.", firstCity.flavorText,
+          "firstCity.FlavorText");
     });
   }
 
