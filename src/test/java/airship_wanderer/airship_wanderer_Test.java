@@ -64,8 +64,8 @@ public class airship_wanderer_Test {
 
   @Test
   void testSkyLevels() {
-    // SEA(0), GROUND(20), TREES(40), HILLS(40 - 150) , LOW(150 - 300), MIDDLE(300 -
-    // 1000), HIGH(1000 - 1800), THIN (<1800);
+    // SEA(0), GROUND(20), TREES(40), HILLS(40 - 150) , LOW(150 - 300),
+    // MIDDLE(300 - 1000), HIGH(1000 - 1800), THIN (<1800);
 
     assertAll("Flight Levels Defined", () -> {
       assertNotNull(SkyLevels.Altitude.SEA);
@@ -90,11 +90,13 @@ public class airship_wanderer_Test {
       assertEquals("Cruising through the valleys and over the hills.", test_airship.getAltitude().getFLText(),
           "HILLS Level");
       test_airship.setAltitude(SkyLevels.Altitude.LOW);
-      assertEquals("Operating between 150 and 300m.", test_airship.getAltitude().getFLText(), "LOW Level");
+      assertEquals("Flying between 150 and 300m.", test_airship.getAltitude().getFLText(), "LOW Level");
       test_airship.setAltitude(SkyLevels.Altitude.MIDDLE);
-      assertEquals("Flying above 300m and below 1000m.", test_airship.getAltitude().getFLText(), "MIDDLE Level");
+      assertEquals("Cruising above 300m and below 1000m.", test_airship.getAltitude().getFLText(), "MIDDLE Level");
       test_airship.setAltitude(SkyLevels.Altitude.HIGH);
-      assertEquals("Cruising above 1000m and below 1800m.", test_airship.getAltitude().getFLText(), "HIGH Level");
+      assertEquals("Operating above 1000m and below 1800m.", test_airship.getAltitude().getFLText(), "HIGH Level");
+      test_airship.setAltitude(SkyLevels.Altitude.THIN);
+      assertEquals("Daring Fate above 1800m.", test_airship.getAltitude().getFLText(), "THIN Level");
 
     });
 
