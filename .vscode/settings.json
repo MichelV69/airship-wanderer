@@ -1,3 +1,4 @@
 {
-  "java.configuration.updateBuildConfiguration": "interactive"
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "editor.fontFamily": "'White Rabbit', Consolas, 'Courier New', monospace"
 }

@@ -17,6 +17,8 @@ public class SkyLevels {
           return "Cruising through the valleys and over the hills.";
         case LOW:
           return "Operating between 150 and 300m.";
+        case MIDDLE:
+          return "Flying above 300m and below 1000m.";
         default:
           return "Unhandled Skylevel.";
       }

@@ -64,7 +64,8 @@ public class airship_wanderer_Test {
 
   @Test
   void testSkyLevels() {
-    // SEA, GROUND, TREES, HILLS, LOW, MIDDLE, HIGH, THIN;
+    // SEA(0), GROUND(20), TREES(40), HILLS(40 - 150) , LOW(150 - 300), MIDDLE(300 -
+    // 1000), HIGH(1000 - 1800), THIN (<1800);
 
     assertAll("Flight Levels Defined", () -> {
       assertNotNull(SkyLevels.Altitude.SEA);
@@ -90,6 +91,10 @@ public class airship_wanderer_Test {
           "HILLS Level");
       test_airship.setAltitude(SkyLevels.Altitude.LOW);
       assertEquals("Operating between 150 and 300m.", test_airship.getAltitude().getFLText(), "LOW Level");
+
+      test_airship.setAltitude(SkyLevels.Altitude.MIDDLE);
+      assertEquals("Flying above 300m and below 1000m.", test_airship.getAltitude().getFLText(), "MIDDLE Level");
+
     });
 
   }
