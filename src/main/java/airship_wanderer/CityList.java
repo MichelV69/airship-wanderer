@@ -12,6 +12,17 @@ public class CityList {
     String flavorText;
     MapSpace location = new MapSpace();
     RegistryFlag.CountryList ownedBy;
+
+    public MapSpace getLocation() {
+      return location;
+    }
+
+    public String[] getLocationAsArray() {
+      String[] result = { String.valueOf(location.getShipNorthPos()), String.valueOf(location.getShipEastPos()),
+          location.getAltitude().getFLText() };
+      return result;
+    }
+
   }
 
   // cityInfo

@@ -106,6 +106,7 @@ public class airship_wanderer_Test {
   void testCityLists() {
     CityList test_cities = new CityList();
     CityList.CityInfo firstCity = test_cities.getInfo("FirstCity");
+    test_airship.setAltitude(SkyLevels.Altitude.GROUND);
     assertAll("City Object WAEx", () -> {
       // Name, FlavorText, PosX, PosY, OwnedBy
       assertNotNull(test_cities, "did object instanciate?");
@@ -113,6 +114,13 @@ public class airship_wanderer_Test {
       assertEquals("FirstCity", firstCity.name, "firstCity.Name");
       assertEquals("Smokey industrial spires and sprawling airship docks.", firstCity.flavorText,
           "firstCity.FlavorText");
+      String[] resultArray = firstCity.getLocationAsArray();
+      assertNotNull(resultArray[0], "did we get array 0");
+      assertNotNull(resultArray[1], "did we get array 1");
+      assertNotNull(resultArray[2], "did we get array 2");
+      assertTrue(resultArray[0] == String.valueOf(13));
+      assertTrue(resultArray[1] == String.valueOf(13));
+      assertTrue(resultArray[2] == test_airship.getAltitude().getFLText());
     });
   }
 
