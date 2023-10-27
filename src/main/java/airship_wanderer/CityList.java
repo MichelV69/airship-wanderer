@@ -22,7 +22,6 @@ public class CityList {
           location.getAltitude().getFLText() };
       return result;
     }
-
   }
 
   // cityInfo
@@ -32,10 +31,12 @@ public class CityList {
     CityInfo newCity = new CityInfo();
     newCity.name = "FirstCity";
     newCity.flavorText = "Smokey industrial spires and sprawling airship docks.";
+    newCity.location.setShipEastPos(13);
+    newCity.location.setShipNorthPos(13);
+    newCity.location.setAltitude(SkyLevels.Altitude.GROUND);
 
     newCity.ownedBy = RegistryFlag.CountryList.GR;
     this.cityInfo.add(newCity);
-
   }
 
   public CityInfo getInfo(String searchedCityName) {

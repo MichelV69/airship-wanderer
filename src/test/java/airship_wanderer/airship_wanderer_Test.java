@@ -5,12 +5,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.Console;
+
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class airship_wanderer_Test {
 
   private final AirshipWanderer test_airship = new AirshipWanderer(null, null);
+  Console console = System.console();
 
   @Test
   void testAirshipGivesFlag() {
@@ -118,8 +121,9 @@ public class airship_wanderer_Test {
       assertNotNull(resultArray[0], "did we get array 0");
       assertNotNull(resultArray[1], "did we get array 1");
       assertNotNull(resultArray[2], "did we get array 2");
-      assertTrue(resultArray[0] == String.valueOf(13));
-      assertTrue(resultArray[1] == String.valueOf(13));
+      System.out.printf("resultArray[0] > %s < resultArray[1] > %s <  %n", resultArray[0], resultArray[2]);
+      assertEquals(13, Short.parseShort(resultArray[0]));
+      assertEquals(13, Short.parseShort(resultArray[1]));
       assertTrue(resultArray[2] == test_airship.getAltitude().getFLText());
     });
   }
